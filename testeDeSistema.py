@@ -68,9 +68,7 @@ usuarios = [
 entregadores = [
     #Aqui referencio os CPFs dos entregadores. É possivel ser tanto usuario quanto entregador
     "000.000.000-01",
-    "000.000.000-02",
-    "pinto",
-    "ereto",
+    "000.000.000-02"
 ]
 
 administradores = [

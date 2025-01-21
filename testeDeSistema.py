@@ -112,4 +112,3 @@ def get_user_by_cpf(cpf):
 
 print(check_lists_integrity())
 
-#agora faremos o teste final do git

@@ -111,3 +111,5 @@ def get_user_by_cpf(cpf):
         return "erro: não foi possível encontrar esta conta"
 
 print(check_lists_integrity())
+
+#agora faremos o teste final do git

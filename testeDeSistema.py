@@ -7,6 +7,8 @@ from flask import *
 *** ME LEIA:
 Este é apenas um código teste: aqui irei testar se o sistema de escolha de entregador aleatório funciona, 
 além de testar se a estrutura do banco de dados vai funcionar bem.
+
+agora estou apenas testando o versionamento git
 '''
 
 '''

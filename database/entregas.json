@@ -52,5 +52,14 @@
         "valor": "10.9",
         "entregador": "000.000.000-02",
         "id": 5
+    },
+    {
+        "status": "deliverying",
+        "cliente": "000.000.000-62",
+        "destinatario": "afipw",
+        "descricao": "vwenoin",
+        "valor": "23",
+        "entregador": "000.000.000-01",
+        "id": 6
     }
 ]

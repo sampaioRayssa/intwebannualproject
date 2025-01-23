@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Index?{% endblock title %}
+
+{% block container %}
+
+<form action="{{url_for('signup')}}" method="POST" >
+    <input type="text" name="cpf">
+    <input type="email" name="email">
+    <input type="text" name="nome">
+    <input type="tel" name="telefone">
+    <input type="password" name="password" id="password">
+    <input type="checkbox" name="entregador">
+
+    <button type="submit">login</button>
+</form>
+
+{% endblock container %}

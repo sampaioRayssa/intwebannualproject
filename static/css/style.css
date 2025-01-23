@@ -11,9 +11,8 @@ body,head{
    height:100vh;
 }
 
-nav{
+.alluia{
     background-color: bisque;
-    text-emphasis: none;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

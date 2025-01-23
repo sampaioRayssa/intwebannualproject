@@ -1,27 +1,31 @@
-body head {
-    background-color: aliceblue;
-    height: 100%;
-    margin: 0%;
+body,head{
+    background: linear-gradient(
+        to right,
+        rgb(113, 48, 48),
+        black,
+        rgb(90, 31, 31)
+       
+      
+     
+    );
+   height:100vh;
 }
 
 nav{
+    background-color: bisque;
+    text-emphasis: none;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
-    background-color: brown;
-}
-
-li{
-    display:contents;
-    border-radius: 5px ;
     
 }
+
+
 
 a{
-    background-color: pink;
     border-radius: 5px;
     text-decoration: none;
-    
+    color: black;
+
 
 }

@@ -10,15 +10,19 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return "Coming soon"
+
 
 @app.route('/cliente')
 def cliente():
     return "Coming soon"
 
+
 @app.route('/entregador')
 def cliente():
     return "Coming soon"
+
+
 
 
 

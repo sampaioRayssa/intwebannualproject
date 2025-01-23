@@ -317,5 +317,3 @@ class users():
             
             Save.deliverers_list(admins)
             return
-
-

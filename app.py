@@ -6,14 +6,20 @@ from myfunctions import *
 
 app = Flask(__name__)
 
-users_general_list = load_users_general_list()
+users_general_list = users_general_list()
 
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
+@app.route('/cliente')
+def cliente():
+    return "Coming soon"
 
+@app.route('/entregador')
+def cliente():
+    return "Coming soon"
 
 
 

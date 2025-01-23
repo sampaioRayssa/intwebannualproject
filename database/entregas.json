@@ -1,30 +1,30 @@
 [
     {
-        "status":"iniciada",
+        "status":"deliverying",
         "cliente":"000.000.000.00",
         "destinatario":"Av. Teste 123",
-        "descrição": "Blusa",
+        "descricao": "Blusa",
         "valor":"7,90",
+        "entregador": "000.000.000-02",
+        "id":0
+    },
+    {
+        "status":"delivered",
+        "cliente":"000.000.000.02",
+        "destinatario":"Av. Teste 214",
+        "descricao": "Canetas",
+        "valor":"2,70",
         "entregador": "000.000.000-02",
         "id":1
     },
     {
-        "status":"entregue",
-        "cliente":"000.000.000.03",
-        "destinatario":"Av. Teste 214",
-        "descrição": "Canetas",
-        "valor":"2,70",
-        "entregador": "000.000.000-02",
-        "id":2
-    },
-    {
-        "status":"confirmada",
+        "status":"confirmed",
         "cliente":"000.000.000.02",
         "destinatario":"Av. Teste 533",
-        "descrição": "Caderno",
+        "descricao": "Caderno",
         "valor":"5,70",
         "entregador": "000.000.000-01",
-        "id":3
+        "id":2
     }
 ]
 

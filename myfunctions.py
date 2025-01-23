@@ -1,7 +1,7 @@
 import json
 import random
 
-
+#funções básicas de save/load
 def load_json(file_path):
     with open(file_path, 'r') as arquivo:
         return json.load(arquivo)
@@ -10,81 +10,197 @@ def save_json(file_path, data):
     with open(file_path, 'w') as arquivo:
         json.dump(data, arquivo, indent=4)
 
-# Usuários
-def load_users_general_list():
-    return load_json('database/usuarios.json')
+#classes, pra organizar melhor
+class Save():
+    def users_general_list(update):
+        save_json('database/usuarios.json', update)
 
-def save_users_general_list(update):
-    save_json('database/usuarios.json', update)
+    def administrators_list(update):
+        save_json('database/administradores.json', update)
 
-# Administradores
-def load_administrators_list():
-    return load_json('database/administradores.json')
+    def commons_list(update):
+        save_json('database/comuns.json', update)
+    
+    def deliverers_list(update):
+        save_json('database/entregadores.json', update)
 
-def save_administrators_list(update):
-    save_json('database/administradores.json', update)
+    def deliverys_list(update):
+        save_json('database/entregas.json', update)
 
-# Comuns
-def load_commons_list():
-    return load_json('database/comuns.json')
+class Load():
+    def users_general_list():
+        return load_json('database/usuarios.json')
+    
+    def administrators_list():
+        return load_json('database/administradores.json')
 
-def save_commons_list(update):
-    save_json('database/comuns.json', update)
+    def commons_list():
+        return load_json('database/comuns.json')
 
-# Entregadores
-def load_deliverers_list():
-    return load_json('database/entregadores.json')
+    def deliverers_list():
+        return load_json('database/entregadores.json')
 
-def save_deliverers_list(update):
-    save_json('database/entregadores.json', update)
-
-# Entregas
-def load_deliverys_list():
-    return load_json('database/entregas.json')
-
-def save_deliverys_list(update):
-    save_json('database/entregas.json', update)
+    def deliverys_list():
+        return load_json('database/entregas.json')
 
 
 #cria uma entrega
-def create_delivery(cliente,destinatario,descrição,valor):
-    entregas = load_deliverys_list()
-    entregadores = load_deliverers_list()
-    entregador = random.choice(entregadores)
-    id = (len(entregas) + 1)
-
-    nova_entrega = {
-        "status": "iniciada",
-        "cliente":cliente,
-        "destinatario":destinatario,
-        "descrição": descrição,
-        "valor":str(valor),
-        "entregador": entregador,
-        "id": id
-    },
-
-    entregas.append(nova_entrega)
-
-    save_deliverers_list(entregas)
-
-    return id
-    
+  
 def deliver_delivery(id_entrega):
-    entregas = load_deliverys_list()
+    entregas = Load.deliverys_list()
     entregas[id_entrega]["status"] = "entregue"
 
-    save_deliverers_list()
+    Save.deliverers_list()
 
 def confirm_delivery(id_entrega):
-    entregas = load_deliverys_list()
+    entregas = Load.deliverys_list()
     entregas[id_entrega]["status"] = "confirmada"
 
-    save_deliverers_list()
+    Save.deliverers_list()
 
 
-'''
-Ainda preciso fazer muitas coisas, mas entregas ja podem ser criadas pelo cliente, entregues pelo entregador e confirmadas pelo cliente
 
-falta ainda o CRUD inteiro, essas são apenas algumas funções básicas
-preciso de muita ajuda nisso, mas vão fazendo por conta
-'''
+class delivery():
+    def create(cliente,destinatario,descrição,valor):
+        entregas = Load.deliverys_list()
+        entregadores = Load.deliverers_list()
+        entregador = random.choice(entregadores)
+        id = len(entregas)
+
+        nova_entrega = {
+            "status": "iniciada",
+            "cliente":cliente,
+            "destinatario":destinatario,
+            "descrição": descrição,
+            "valor":str(valor),
+            "entregador": entregador,
+            "id": id
+        },
+
+        entregas.append(nova_entrega)
+
+        Save.deliverers_list(entregas)
+
+        return id
+    
+    def update(id,entregador = '', status = '', cliente='', destinatario='', descrição='', valor=''):
+        entregas = delivery.get.all()
+
+        if cliente:
+            entregas[id]["cliente"] = cliente
+
+        if destinatario:
+            entregas[id]["destinatario"] = destinatario
+
+        if descrição:
+            entregas[id]["descricao"] = descrição
+
+        if valor:
+            entregas[id]["valor"] = valor
+
+        if status:
+            entregas[id]["status"] = status
+
+        if entregador:
+            entregas[id]["entregador"] = entregador
+
+        Save.deliverys_list(entregas)
+
+        return entregas[id]
+    
+    def delete(id):
+        entregas = delivery.get.all()
+
+        entregas.pop(id)
+
+        Save.deliverys_list(entregas)
+    
+    class get():
+        class by_client():
+            def all(user_cpf):
+                entregas = Load.deliverys_list()
+                S = []
+                for i in entregas:
+                    if i["cliente"] == user_cpf:
+                        S.append(i)
+                return S
+
+            def deliverying(user_cpf):
+                entregas = Load.deliverys_list()
+                S = []
+                for i in entregas:
+                    if (i["cliente"] == user_cpf) and (i["status"] == "deliverying"):
+                        S.append(i)
+                return S
+            
+            def delivered(user_cpf):
+                entregas = Load.deliverys_list()
+                S = []
+                for i in entregas:
+                    if (i["cliente"] == user_cpf) and (i["status"] == "delivered"):
+                        S.append(i)
+                return S
+            
+            def confirmed(user_cpf):
+                entregas = Load.deliverys_list()
+                S = []
+                for i in entregas:
+                    if (i["cliente"] == user_cpf) and (i["status"] == "confirmed"):
+                        S.append(i)
+                return S
+
+        class by_deliverer():
+            def all(user_cpf):
+                entregas = Load.deliverys_list()
+                S = []
+                for i in entregas:
+                    if i["entregador"] == user_cpf:
+                        S.append(i)
+                return S
+
+            def deliverying(user_cpf):
+                entregas = Load.deliverys_list()
+                S = []
+                for i in entregas:
+                    if (i["entregador"] == user_cpf) and (i["status"] == "deliverying"):
+                        S.append(i)
+                return S
+            
+            def delivered(user_cpf):
+                entregas = Load.deliverys_list()
+                S = []
+                for i in entregas:
+                    if (i["entregador"] == user_cpf) and (i["status"] == "delivered"):
+                        S.append(i)
+                return S
+            
+            def confirmed(user_cpf):
+                entregas = Load.deliverys_list()
+                S = []
+                for i in entregas:
+                    if (i["entregador"] == user_cpf) and (i["status"] == "confirmed"):
+                        S.append(i)
+                return S
+
+        def all():
+            return Load.deliverys_list()
+
+    class process():
+        def deliver(id):
+            entregas = delivery.get.all()
+
+            entregas[id]['status'] = 'delivered'
+
+            Save.deliverys_list(entregas)
+
+            return entregas[id]
+        
+        def confirm(id):
+            entregas = delivery.get.all()
+
+            entregas[id]['status'] = 'confirmed'
+
+            Save.deliverys_list(entregas)
+
+            return entregas[id]
+        

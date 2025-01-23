@@ -6,7 +6,6 @@ from myfunctions import *
 
 app = Flask(__name__)
 
-users_general_list = users_general_list()
 
 
 @app.route("/")

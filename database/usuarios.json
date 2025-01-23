@@ -1,33 +1,32 @@
 {
-    "000.000.000-00":
-    {
-    "email": "test@mail",
-    "nome": "user01",
-    "tel": "(99) 99999-9999",
-    "password": "teste"
+    "000.000.000-00": {
+        "email": "test@mail",
+        "nome": "user01",
+        "tel": "(99) 99999-9999",
+        "password": "teste"
     },
-
-    "000.000.000-01":
-    {
-    "email": "test01@mail",
-    "nome": "entregador01",
-    "tel": "(99) 99999-9998",
-    "password": "teste"
+    "000.000.000-01": {
+        "email": "test01@mail",
+        "nome": "entregador01",
+        "tel": "(99) 99999-9998",
+        "password": "teste"
     },
-
-    "000.000.000-02":
-    {
-    "email": "test02@mail",
-    "nome": "entregador02",
-    "tel": "(99) 99999-9997",
-    "password": "teste"
+    "000.000.000-02": {
+        "email": "test02@mail",
+        "nome": "entregador02",
+        "tel": "(99) 99999-9997",
+        "password": "teste"
     },
-
-    "000.000.000-03":
-    {
-    "email": "test03@mail",
-    "nome": "adm01",
-    "tel": "(99) 99999-9996",
-    "password": "admin"
+    "000.000.000-03": {
+        "email": "test03@mail",
+        "nome": "adm01",
+        "tel": "(99) 99999-9996",
+        "password": "admin"
+    },
+    "000.000.000-92": {
+        "email": "teste1245@mail",
+        "nome": "guest9783",
+        "tel": "1234-5678",
+        "password": "senha1234"
     }
 }

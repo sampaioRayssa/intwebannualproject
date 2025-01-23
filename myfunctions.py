@@ -44,42 +44,31 @@ class Load():
         return load_json('database/entregas.json')
 
 
-#cria uma entrega
-  
-def deliver_delivery(id_entrega):
-    entregas = Load.deliverys_list()
-    entregas[id_entrega]["status"] = "entregue"
-
-    Save.deliverers_list()
-
-def confirm_delivery(id_entrega):
-    entregas = Load.deliverys_list()
-    entregas[id_entrega]["status"] = "confirmada"
-
-    Save.deliverers_list()
-
 
 
 class deliverys():
     def create(cliente,destinatario,descrição,valor):
         entregas = Load.deliverys_list()
+        
         entregadores = Load.deliverers_list()
+        
         entregador = random.choice(entregadores)
+        
         id = len(entregas)
 
         nova_entrega = {
-            "status": "iniciada",
-            "cliente":cliente,
-            "destinatario":destinatario,
-            "descrição": descrição,
+            "status": "started",
+            "cliente": cliente,
+            "destinatario": destinatario,
+            "descricao": descrição,
             "valor":str(valor),
             "entregador": entregador,
             "id": id
-        },
+        }
 
         entregas.append(nova_entrega)
 
-        Save.deliverers_list(entregas)
+        Save.deliverys_list(entregas)
 
         return id
     
@@ -187,6 +176,7 @@ class deliverys():
 
     class process():
         def deliver(id):
+            id = int(id)
             entregas = deliverys.get.all()
 
             entregas[id]['status'] = 'delivered'
@@ -218,12 +208,45 @@ class users():
 
             Save.users_general_list(usuarios)
 
-            return "Conta criada com sucesso"
+            return f"Usuário {nome} cadastrado com sucesso"
         
-        return "CPF já cadastrado"
+        return " este CPF já está cadastrado"
     
-    def edit(cpf,email,nome,telefone,senha):
-        return
+    def edit(cpf,email = '',nome = '',telefone = '',senha = ''):
+        usuarios = Load.users_general_list()
+        
+        if cpf in usuarios:
+            new_data = {}
+            
+            if email:
+                new_data["email"] = email
+                     
+            if nome:
+                new_data["nome"] = nome 
+                           
+            if telefone:
+                new_data["tefone"] = telefone  
+                          
+            if senha:
+                new_data["email"] = senha
+            
+            
+            usuarios[cpf] = new_data
+            
+            Save.users_general_list(usuarios)
+            
+            return "Conta atualizada com sucesso"
+        
+        return "CPF não encontrado"
+    
+    def delete(cpf):
+        usuarios = Load.users_general_list()
+        
+        s = usuarios.pop(cpf)
+        
+        Save.users_general_list(usuarios)
+        
+        return s
     
     class get():
         def all():
@@ -248,24 +271,51 @@ class users():
 
             return adminis_dict
 
-
-
-
-    
-    def delete():
-        return
+        def by_cpf(cpf):
+            GL = Load.users_general_list()
+            return GL[cpf]
     
     class set_as():       
-        def deliverer(id):
-            return
+        def deliverer(cpf):
+            entregadores = Load.deliverers_list()
+            
+            if not cpf in entregadores:
+                entregadores.append(cpf)
+                
+                Save.deliverers_list(entregadores)
+                
+                return "now User is an Deliverer"
+            
+            return "User already on the deliverers list"
+
         
-        def administrator(id):
-            return
+        def administrator(cpf):
+            admins = Load.administrators_list()
+            
+            if not cpf in admins:
+                admins.append(cpf)
+                
+                Save.deliverers_list(admins)
+                
+                return "now User is an Administrator"
+            
+            return "User already on the Administrators list"
         
     class unset_as():
-        def deliverer(id):
+        def deliverer(cpf):
+            entregadores = Load.deliverers_list()
+            
+            entregadores.remove(cpf)
+            
+            Save.deliverers_list(entregadores)
             return
         
-        def administrator(id):
+        def administrator(cpf):
+            admins = Load.administrators_list()
+            
+            admins.pop(cpf)
+            
+            Save.deliverers_list(admins)
             return
-    
+
+

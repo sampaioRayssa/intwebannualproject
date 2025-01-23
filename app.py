@@ -76,7 +76,23 @@ def client():
     
     print(deliveriyng)
         
-    return render_template("clientInterface.html",deliveriyng=deliveriyng)
+    return render_template("clientInterface.html",deliveriyng=deliveriyng,delivered=delivered)
+
+@app.route('/createdelivery', methods=['GET', 'POST'])
+def createdelivery():
+    if request.method == "POST":
+        cliente = session['cpf']
+        destinatario = request.form["destinatario"]
+        descricao = request.form["descricao"]
+        valor = request.form["valor"]
+        
+        deliverys.create(cliente,destinatario,descricao,valor)
+        
+        
+        return redirect(url_for("client"))
+        
+    return render_template("create_delivery.html")
+
 
 
 if __name__ == '__main__':

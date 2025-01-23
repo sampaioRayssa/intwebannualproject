@@ -27,7 +27,7 @@
         "id": 2
     },
     {
-        "status": "started",
+        "status": "deliverying",
         "cliente": "000.000.000-02",
         "destinatario": "av sla man",
         "descricao": "um sapato",
@@ -43,5 +43,14 @@
         "valor": "19,99",
         "entregador": "000.000.000-01",
         "id": 4
+    },
+    {
+        "status": "deliverying",
+        "cliente": "000.000.000-00",
+        "destinatario": "Av. N sei man",
+        "descricao": "uma blusinha da shei",
+        "valor": "10.9",
+        "entregador": "000.000.000-02",
+        "id": 5
     }
 ]

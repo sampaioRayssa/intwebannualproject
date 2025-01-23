@@ -1,7 +1,4 @@
 from flask import *
-import random
-import json
-import os
 from myfunctions import *
 
 app = Flask(__name__)
@@ -10,7 +7,7 @@ app.secret_key = "f8X$wLk2V#bQ!zC9jM@1ZpTg"
 
 @app.route("/")
 def index():
-    return render_template("")
+    return render_template("index.html")
 
 
 
@@ -70,6 +67,16 @@ def logout():
     
     return redirect(url_for("login"))
 
+@app.route('/client')
+def client():
+    client_cpf = session["cpf"]
+    
+    deliveriyng = deliverys.get.by_client.deliverying(client_cpf)
+    delivered = deliverys.get.by_client.delivered(client_cpf)
+    
+    print(deliveriyng)
+        
+    return render_template("clientInterface.html",deliveriyng=deliveriyng)
 
 
 if __name__ == '__main__':

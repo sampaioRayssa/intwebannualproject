@@ -1,7 +1,7 @@
 [
     {
         "status": "deliverying",
-        "cliente": "000.000.000.00",
+        "cliente": "000.000.000-00",
         "destinatario": "Av. Teste 123",
         "descricao": "Blusa",
         "valor": "7,90",
@@ -10,7 +10,7 @@
     },
     {
         "status": "delivered",
-        "cliente": "000.000.000.02",
+        "cliente": "000.000.000-02",
         "destinatario": "Av. Teste 214",
         "descricao": "Canetas",
         "valor": "2,70",
@@ -19,7 +19,7 @@
     },
     {
         "status": "confirmed",
-        "cliente": "000.000.000.02",
+        "cliente": "000.000.000-02",
         "destinatario": "Av. Teste 533",
         "descricao": "Caderno",
         "valor": "5,70",

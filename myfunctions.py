@@ -53,6 +53,8 @@ class deliverys():
         entregadores = Load.deliverers_list()
         
         entregador = random.choice(entregadores)
+        while cliente == entregador:
+            entregador = random.choice(entregadores)
         
         id = len(entregas)
 

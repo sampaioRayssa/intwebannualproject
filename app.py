@@ -73,9 +73,7 @@ def client():
     
     deliveriyng = deliverys.get.by_client.deliverying(client_cpf)
     delivered = deliverys.get.by_client.delivered(client_cpf)
-    
-    print(deliveriyng)
-        
+            
     return render_template("clientInterface.html",deliveriyng=deliveriyng,delivered=delivered)
 
 @app.route('/createdelivery', methods=['GET', 'POST'])
@@ -93,12 +91,33 @@ def createdelivery():
         
     return render_template("create_delivery.html")
 
+@app.route('/deliverer', methods=['GET','POST'])
+def deliverer():
+    user_cpf = session["cpf"]
+    
+    deliveriyng = deliverys.get.by_deliverer.deliverying(user_cpf)
+    delivered = deliverys.get.by_deliverer.delivered(user_cpf)
+    confirmed = deliverys.get.by_deliverer.confirmed(user_cpf)
+    
+    return render_template("deliverInterface.html",deliveriyng=deliveriyng,delivered=delivered,confirmed=confirmed)
+
+@app.route('/deliver', methods=['POST'])
+def deliver():
+    Id = request.form["id"]
+    
+    deliverys.process.deliver(Id)
+    
+    return redirect(url_for("deliverer"))
+
+@app.route('/confirm', methods=['POST'])
+def confirm():
+    Id = int(request.form["id"])
+    
+    deliverys.process.confirm(Id)
+    
+    return redirect(url_for("client"))
+
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-    
-'''
-Testando jhonatass
-'''

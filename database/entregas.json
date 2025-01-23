@@ -9,7 +9,7 @@
         "id": 0
     },
     {
-        "status": "delivered",
+        "status": "confirmed",
         "cliente": "000.000.000-02",
         "destinatario": "Av. Teste 214",
         "descricao": "Canetas",
@@ -54,12 +54,21 @@
         "id": 5
     },
     {
-        "status": "deliverying",
+        "status": "delivered",
         "cliente": "000.000.000-62",
         "destinatario": "afipw",
         "descricao": "vwenoin",
         "valor": "23",
         "entregador": "000.000.000-01",
         "id": 6
+    },
+    {
+        "status": "confirmed",
+        "cliente": "000.000.000-01",
+        "destinatario": "Av. n sei man",
+        "descricao": "uma cal\u00e7a",
+        "valor": "35",
+        "entregador": "000.000.000-02",
+        "id": 7
     }
 ]

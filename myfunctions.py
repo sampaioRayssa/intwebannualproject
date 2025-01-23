@@ -57,7 +57,7 @@ class deliverys():
         id = len(entregas)
 
         nova_entrega = {
-            "status": "started",
+            "status": "deliverying",
             "cliente": cliente,
             "destinatario": destinatario,
             "descricao": descrição,

@@ -33,7 +33,7 @@ def login():
                     session["adm"] = True
 
                 return redirect(url_for("index"))
-        return render_template("login.html")
+        
     return render_template("login.html")
 
 @app.route('/signup', methods=['GET', 'POST'])

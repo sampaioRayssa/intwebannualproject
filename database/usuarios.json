@@ -6,9 +6,9 @@
         "password": "teste"
     },
     "000.000.000-01": {
-        "email": "test01@mail",
         "nome": "entregador01",
-        "tel": "(99) 99999-9998",
+        "email": "test01@mail",
+        "tel": "(99) 99999-9278",
         "password": "teste"
     },
     "000.000.000-02": {
@@ -29,10 +29,10 @@
         "tel": "1234-5678",
         "password": "senha1234"
     },
-    "000.000.000-62": {
-        "email": "test241@mail",
-        "nome": "guest71204",
-        "tel": "7812404217821",
-        "password": "pass"
+    "000.000.111-00": {
+        "nome": "User",
+        "email": "testeXDD@mail",
+        "tel": "35436261",
+        "password": "senha"
     }
 }

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Editando Perfil{% endblock title %}
+
+{% block container %}
+
+<form action="/editprofile/{{cpf}}" method="POST" >
+
+    <input type="email" name="email" value="{{conta.email}}">
+    <input type="text" name="nome" value="{{conta.nome}}">
+    <input type="tel" name="telefone" value="{{conta.tel}}">
+    <input type="password" name="password" value="{{conta.password}}">
+    <input type="checkbox" name="entregador" {% if ent %}checked{% endif %}>
+    
+    {% if session.adm %}
+        <input type="checkbox" name="admin" {% if adm %}checked{% endif %}>
+    {% endif %}
+
+    <button type="submit">Salvar alterações</button>
+    <button type="reset">Limpar</button>
+</form>
+
+{% endblock container %}

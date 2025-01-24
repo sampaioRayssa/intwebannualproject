@@ -1,7 +1,6 @@
 import json
 import random
 
-#funções básicas de save/load
 def load_json(file_path):
     with open(file_path, 'r') as arquivo:
         return json.load(arquivo)
@@ -10,10 +9,10 @@ def save_json(file_path, data):
     with open(file_path, 'w') as arquivo:
         json.dump(data, arquivo, indent=4)
 
-#classes, pra organizar melhor
 class Save():
     def users_general_list(update):
         save_json('database/usuarios.json', update)
+        
 
     def administrators_list(update):
         save_json('database/administradores.json', update)
@@ -214,27 +213,25 @@ class users():
         
         return " este CPF já está cadastrado"
     
-    def edit(cpf,email = '',nome = '',telefone = '',senha = ''):
+    def edit(cpf,email,nome,telefone,senha):
         usuarios = Load.users_general_list()
         
         if cpf in usuarios:
             new_data = {}
             
+            if nome:
+                new_data["nome"] = nome
             if email:
                 new_data["email"] = email
-                     
-            if nome:
-                new_data["nome"] = nome 
-                           
             if telefone:
-                new_data["tefone"] = telefone  
-                          
+                new_data["tel"] = telefone
             if senha:
-                new_data["email"] = senha
+                new_data["password"] = senha
+
             
             
             usuarios[cpf] = new_data
-            
+                        
             Save.users_general_list(usuarios)
             
             return "Conta atualizada com sucesso"
@@ -297,7 +294,7 @@ class users():
             if not cpf in admins:
                 admins.append(cpf)
                 
-                Save.deliverers_list(admins)
+                Save.administrators_list(admins)
                 
                 return "now User is an Administrator"
             
@@ -307,15 +304,18 @@ class users():
         def deliverer(cpf):
             entregadores = Load.deliverers_list()
             
-            entregadores.remove(cpf)
-            
-            Save.deliverers_list(entregadores)
-            return
+            if cpf in entregadores:
+                entregadores.remove(cpf)
+                Save.deliverers_list(entregadores)
+                return "User isn't anymore an Deliverer"
+            return "User not found in Deliverers list"
         
         def administrator(cpf):
             admins = Load.administrators_list()
             
-            admins.pop(cpf)
-            
-            Save.deliverers_list(admins)
-            return
+            if cpf in admins:
+                admins.pop(cpf)
+                Save.deliverers_list(admins)
+                return "User isn't anymore an Admin"
+            return "User not found in Admins list"
+        

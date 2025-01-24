@@ -7,7 +7,7 @@ app.secret_key = "f8X$wLk2V#bQ!zC9jM@1ZpTg"
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html",session=session)
 
 
 
@@ -34,7 +34,7 @@ def login():
 
                 return redirect(url_for("index"))
         
-    return render_template("login.html")
+    return render_template("login.html",session=session)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -46,7 +46,7 @@ def signup():
         nome = request.form["nome"]
         telefone = request.form["telefone"]
         senha = request.form["password"]
-        entregador = bool(request.form["entregador"])
+        entregador = request.form.get('entregador') == 'on'
         
         if not cpf in usuario:
             users.create(cpf,email,nome,telefone,senha)
@@ -56,7 +56,7 @@ def signup():
                 
             return redirect(url_for("index"))
         
-    return render_template("signup.html")
+    return render_template("signup.html",session=session)
 
 @app.route("/logout")
 def logout():
@@ -74,7 +74,7 @@ def client():
     deliveriyng = deliverys.get.by_client.deliverying(client_cpf)
     delivered = deliverys.get.by_client.delivered(client_cpf)
             
-    return render_template("clientInterface.html",deliveriyng=deliveriyng,delivered=delivered)
+    return render_template("clientInterface.html",deliveriyng=deliveriyng,delivered=delivered,session=session)
 
 @app.route('/createdelivery', methods=['GET', 'POST'])
 def createdelivery():
@@ -89,7 +89,7 @@ def createdelivery():
         
         return redirect(url_for("client"))
         
-    return render_template("create_delivery.html")
+    return render_template("create_delivery.html",session=session)
 
 @app.route('/deliverer', methods=['GET','POST'])
 def deliverer():
@@ -99,7 +99,7 @@ def deliverer():
     delivered = deliverys.get.by_deliverer.delivered(user_cpf)
     confirmed = deliverys.get.by_deliverer.confirmed(user_cpf)
     
-    return render_template("deliverInterface.html",deliveriyng=deliveriyng,delivered=delivered,confirmed=confirmed)
+    return render_template("deliverInterface.html",deliveriyng=deliveriyng,delivered=delivered,confirmed=confirmed,session=session)
 
 @app.route('/deliver', methods=['POST'])
 def deliver():
@@ -117,7 +117,60 @@ def confirm():
     
     return redirect(url_for("client"))
 
+@app.route("/editprofile/<cpf>", methods=['GET', 'POST'])
+def editprofile(cpf):
+    if "adm" not in session and cpf != session.get("cpf"):
+        abort(401)
 
+    contas = Load.users_general_list()
+
+    if cpf not in contas:
+        abort(404)
+
+    conta = users.get.by_cpf(cpf)
+    if request.method == "POST":
+        
+        email = request.form["email"]
+        nome = request.form["nome"]
+        telefone = request.form["telefone"]
+        senha = request.form["password"]
+        
+        entregador = request.form.get("entregador") == 'on'
+        admin = request.form.get("admin") == 'on'
+        
+        users.edit(cpf,email,nome,telefone,senha)
+        
+        contas = Load.users_general_list()
+        
+        if entregador:
+            users.set_as.deliverer(cpf)
+            session['entregador'] = True
+        else:
+            users.unset_as.deliverer(cpf)
+            session['entregador'] = False
+            
+        if admin:
+            users.set_as.administrator(cpf)
+            session['adm'] = True
+        else:
+            users.unset_as.administrator(cpf)
+            session['adm'] = False
+
+            
+        Save.users_general_list(contas)
+            
+        return redirect(url_for("index"))
+    
+    ent = False
+    if cpf in Load.deliverers_list():
+        ent = True
+        
+    adm = False
+    if cpf in Load.administrators_list():
+        adm = True
+
+    return render_template("editProfile.html",session=session,cpf=cpf,conta=conta,ent=ent,adm=adm)
+    
 
 if __name__ == '__main__':
     app.run(debug=True)

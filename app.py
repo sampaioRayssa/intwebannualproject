@@ -203,7 +203,15 @@ def editdelivery(eID):
     return render_template("editDelivery.html",session=session, user=user, entrega=entrega, eID=eID)
     
     
-            
+@app.route("/staff")
+def staff():
+    if session["cpf"] not in Load.administrators_list():
+        abort(403)
+        
+    usuarios = Load.users_general_list()
+    pedidos = Load.users_general_list()
+    
+    return render_template('adminterface.html',session=session,usuarios=usuarios,pedidos=pedidos)
             
     
 

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Index?{% endblock title %}
+
+{% block container %}
+
+<h1>Pedidos</h1>
+<li>
+    {% for pedido in pedidos %}
+        <ul>
+            <b>{{pedido.descricao}}</b>
+            <p>{{pedido.status}}</p>
+            <p>{{pedido.destinatario}}</p>
+            <p>{{pedido.valor}}</p>
+            <p>{{pedido.entregador}}</p>
+            <p>{{pedido.id}}</p>
+
+            <a href="/editdelivery/{{pedido.id}}">
+                <button>
+                    Editar pedido
+                </button>
+            </a>
+        </ul>
+    {% endfor %}
+</li>
+<h1>Pedidos</h1>
+<li>
+    {% for usuario in usuarios %}
+        <ul>
+            <b>{{usuario.nome}}</b>
+            <p>{{usuario.cpf}}</p>
+            <p>{{usuario.email}}</p>
+            <p>{{usuario.tel}}</p>
+            <p>••••••••••</p>            
+
+            <a href="/editProfile/{{usuario.cpf}}">
+                <button>
+                    Editar Perfil
+                </button>
+            </a>
+        </ul>
+    {% endfor %}
+</li>
+
+{% endblock container %}

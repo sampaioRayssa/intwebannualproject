@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Index?{% endblock title %}
+
+{% block container %}
+
+<h1>Criar Entrega</h1>
+<form action="/editdelivery/{{eID}}" method="POST" >
+    <input type="text" name="cliente" value="{{entrega.cliente}}" hidden>
+    <input type="text" name="aaaaa" value="{{entrega.cliente}}" disabled>
+    <input type="text" name="status" value="{{entrega.status}}">
+    <input type="text" name="destinatario" value="{{entrega.destinatario}}">
+    <input type="text" name="descricao" value="{{entrega.descricao}}">
+    <input type="number" name="valor" step="0.05" value="{{entrega.valor}}">
+    <input type="text" name="entregador" value="{{entrega.entregador}}">
+
+    <button type="submit">Salvar</button>
+    <button type="reset">Limpar</button>
+</form>
+
+
+
+
+{% endblock container %}

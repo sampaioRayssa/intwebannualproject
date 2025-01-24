@@ -1,45 +1,43 @@
 {% extends "base.html" %}
 
-{% block title %}Index?{% endblock title %}
+{% block title %}Página de Administração{% endblock title %}
 
 {% block container %}
 
 <h1>Pedidos</h1>
-<li>
-    {% for pedido in pedidos %}
-        <ul>
-            <b>{{pedido.descricao}}</b>
-            <p>{{pedido.status}}</p>
-            <p>{{pedido.destinatario}}</p>
-            <p>{{pedido.valor}}</p>
-            <p>{{pedido.entregador}}</p>
-            <p>{{pedido.id}}</p>
+<ul>
+    {% for i in pedidos %}
+        <li>
+            <b>{{ i["descricao"] }}</b>
+            <p>Status: {{ i["status"] }}</p>
+            <p>Destinatário: {{ i["destinatario"] }}</p>
+            <p>Valor: {{ i["valor"] }}</p>
+            <p>Entregador: {{ i["entregador"] }}</p>
+            <p>ID: {{ i["id"] }}</p>
 
-            <a href="/editdelivery/{{pedido.id}}">
-                <button>
-                    Editar pedido
-                </button>
+            <a href="/editdelivery/{{ i['id'] }}">
+                <button>Editar pedido</button>
             </a>
-        </ul>
+        </li>
     {% endfor %}
-</li>
-<h1>Pedidos</h1>
-<li>
-    {% for usuario in usuarios %}
-        <ul>
-            <b>{{usuario.nome}}</b>
-            <p>{{usuario.cpf}}</p>
-            <p>{{usuario.email}}</p>
-            <p>{{usuario.tel}}</p>
-            <p>••••••••••</p>            
+</ul>
 
-            <a href="/editProfile/{{usuario.cpf}}">
-                <button>
-                    Editar Perfil
-                </button>
+<h1>Usuários</h1>
+<ul>
+    {% for cpf, usuario in usuarios.items() %}
+
+        <li>
+            <b>{{ usuario["nome"] }}</b>
+            <p>CPF: {{ cpf }}</p>
+            <p>Email: {{ usuario["email"] }}</p>
+            <p>Telefone: {{ usuario["tel"] }}</p>
+
+            <a href="/editprofile/{{cpf}}">
+                <button>Editar Perfil</button>
             </a>
-        </ul>
+        </li>
+
     {% endfor %}
-</li>
+</ul>
 
 {% endblock container %}

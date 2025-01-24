@@ -1,11 +1,11 @@
 body,head{
    height:100%;
-   background-color: #d4949e;
+   background-color: #ffffff;
 
 }
 
 .alluia{
-    background-color: rgb(199, 43, 129);
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

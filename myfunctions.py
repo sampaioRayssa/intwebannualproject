@@ -124,13 +124,7 @@ class deliverys():
                 return S
             
             def delivered(user_cpf):
-                entregas = Load.deliverys_list()
-                S = []
-                for i in entregas:
-                    if (i["cliente"] == user_cpf) and (i["status"] == "delivered"):
-                        S.append(i)
-                return S
-            
+                entregas = Load.deliv#UCC9AeVM@MHs4
             def confirmed(user_cpf):
                 entregas = Load.deliverys_list()
                 S = []

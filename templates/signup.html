@@ -4,15 +4,58 @@
 
 {% block container %}
 
-<form action="{{url_for('signup')}}" method="POST" >
-    <input type="text" name="cpf">
-    <input type="email" name="email">
-    <input type="text" name="nome">
-    <input type="tel" name="telefone">
-    <input type="password" name="password" id="password">
+<form action="{{url_for('signup')}}" method="POST">
+
+    <!--CPF-->
+    <div class="form-group">
+        <label for="#">CPF</label>
+        <input type="number" class="form-control" id="exampleInputPassword1" name="cpf" placeholder="">
+    </div>
+
+    <!--E-mail-->
+    <div class="form-group">
+      <label for="#">E-mail</label>
+      <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
+      <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
+    </div>
+    
+    <!--Nome-->
+    <div class="form-group">
+        <label for="#">nome</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="name" placeholder="seunome">
+    </div>
+
+    <!--telefone-->
+    <div class="form-group">
+        <label for="#">Telefone</label>
+        <input type="tel" class="form-control" id="tel" name="telefone" placeholder="">
+    </div>
+
+    <div class="form-group">
+        <label for="#">Senha</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="suasenha">
+    </div>
+
+    <!--Seleção entregador-->
+    <label for="#">Você é um entregador?</label>
     <input type="checkbox" name="entregador">
 
-    <button type="submit">create account</button>
-</form>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Sou entregador</label>
+    </div>
+    <button type="submit">Criar</button>
+  </form>
+
+    <!--<form action="{{url_for('signup')}}" method="POST" >
+        <input type="text" name="cpf">
+        <input type="email" name="email">
+        <input type="text" name="nome">
+        <input type="tel" name="telefone">
+        <input type="password" name="password" id="password">
+        <input type="checkbox" name="entregador">
+
+        <button type="submit">create account</button>
+    </form>-->
 
 {% endblock container %}

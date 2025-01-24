@@ -205,15 +205,18 @@ def editdelivery(eID):
     
 @app.route("/staff")
 def staff():
-    if session["cpf"] not in Load.administrators_list():
+    if "cpf" not in session:
+        print("Sessão sem CPF!")
         abort(403)
-        
+    
+    if session["cpf"] not in Load.administrators_list():
+        print(f"O CPF {session['cpf']} não é administrador.")
+        abort(403)
+    
     usuarios = Load.users_general_list()
-    pedidos = Load.users_general_list()
-    
-    return render_template('adminterface.html',session=session,usuarios=usuarios,pedidos=pedidos)
-            
-    
+    pedidos = Load.deliverys_list()
+
+    return render_template('adminterface.html', session=session, usuarios=usuarios, pedidos=pedidos)
 
 
 if __name__ == '__main__':

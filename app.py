@@ -183,10 +183,6 @@ def editdelivery(eID):
         
     elif entrega["cliente"] == session["cpf"]:
         user = "cliente"
-            
-    elif entrega["entregador"] == session["cpf"]:
-        user = "entregador"
-    
     else:
         abort(401)
         
@@ -201,7 +197,7 @@ def editdelivery(eID):
         deliverys.update(eID,entregador,status,cliente,destinatario,descricao,valor)
 
         
-        return redirect(url_for("index"))
+        return redirect(url_for("client"))
     
     
     return render_template("editDelivery.html",session=session, user=user, entrega=entrega, eID=eID)

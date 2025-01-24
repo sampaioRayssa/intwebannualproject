@@ -3,31 +3,34 @@
 {% block title %}Index?{% endblock title %}
 
 {% block container %}
-
-<h1>Criar Entrega</h1>
-<form action="/editdelivery/{{eID}}" method="POST" >
+<h1>Editar Entrega</h1>
+<form action="/editdelivery/{{eID}}" method="POST">
     <input type="text" name="cliente" value="{{entrega.cliente}}" hidden>
 
     <input type="text" name="aaaaa" value="{{entrega.cliente}}" disabled>
-
+    <input type="hidden" name="aaaaa" value="{{entrega.cliente}}">
 
     <select name="status" {% if user != "adm" %}disabled{% endif %}>
         <option value="deliverying" {% if entrega.status == 'deliverying' %}selected{% endif %}>deliverying</option>
         <option value="delivered" {% if entrega.status == 'delivered' %}selected{% endif %}>delivered</option>
         <option value="confirmed" {% if entrega.status == 'confirmed' %}selected{% endif %}>confirmed</option>
     </select>    
+    <input type="hidden" name="status" value="{{entrega.status}}">
 
-    <input type="text" name="destinatario" value="{{entrega.destinatario}}" {% if user == "entregador" %}disabled{% endif %}>
+    <input type="text" name="destinatario" value="{{entrega.destinatario}}">
 
     <input type="text" name="descricao" value="{{entrega.descricao}}">
 
     <input type="number" name="valor" step="0.05" value="{{entrega.valor}}">
 
-    <input type="text" name="entregador" value="{{entrega.entregador}}">
+    <input type="text" name="entregador" value="{{entrega.entregador}}" {% if user != "adm" %}disabled{% endif %}>
+    <input type="hidden" name="entregador" value="{{entrega.entregador}}">
 
     <button type="submit">Salvar</button>
     <button type="reset">Limpar</button>
 </form>
+
+
 
 
 

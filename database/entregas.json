@@ -1,10 +1,10 @@
 [
     {
-        "status": "deliverying",
+        "status": "confirmed",
         "cliente": "000.000.000-00",
         "destinatario": "Av. Teste 123",
         "descricao": "Blusa",
-        "valor": "7,90",
+        "valor": "10.90",
         "entregador": "000.000.000-02",
         "id": 0
     },
@@ -48,7 +48,7 @@
         "status": "deliverying",
         "cliente": "000.000.000-00",
         "destinatario": "Av. N sei man",
-        "descricao": "uma blusinha da shei",
+        "descricao": "uma camisa da shein",
         "valor": "10.9",
         "entregador": "000.000.000-02",
         "id": 5

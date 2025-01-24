@@ -1,12 +1,15 @@
 body,head{
    height:100%;
+   background-color: pink;
+
 }
 
 .alluia{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(199, 43, 129);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+
     
 }
 
@@ -17,5 +20,8 @@ a{
     text-decoration: none;
     color: black;
 
-
 }
+
+
+
+

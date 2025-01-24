@@ -3,26 +3,15 @@
 {% block title %}Index?{% endblock title %}
 
 {% block container %}
-<!--
+
 <title>Faça Login</title>
-<form action="{{url_for('login')}}" method="POST">
 
-
-    <div class="form-group">
-        <label for="#">CPF</label>
-        <input type="number" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
-    </div>
-
-<<<<<<< HEAD
-=======
-    <!--Senha -->
->>>>>>> 6618ddee15e27628cea98225a00a3dd29a1c731d
+    <!-- Senha -->
     <div class="form-group">
         <label for="#">Senha</label>
         <input type="password" class="form-control" id="password" name="password" placeholder="">
     </div>
 
--->
 <form action="{{url_for('login')}}" method="POST" >
     <input type="text" name="cpf" id="cpf">
     <input type="password" name="password" id="password">

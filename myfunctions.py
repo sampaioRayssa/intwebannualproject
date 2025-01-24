@@ -73,7 +73,7 @@ class deliverys():
 
         return id
     
-    def update(id,entregador = '', status = '', cliente='', destinatario='', descrição='', valor=''):
+    def update(id,entregador = '', status = '', cliente='', destinatario='', descricao='', valor=''):
         entregas = deliverys.get.all()
 
         if cliente:
@@ -82,8 +82,8 @@ class deliverys():
         if destinatario:
             entregas[id]["destinatario"] = destinatario
 
-        if descrição:
-            entregas[id]["descricao"] = descrição
+        if descricao:
+            entregas[id]["descricao"] = descricao
 
         if valor:
             entregas[id]["valor"] = valor
@@ -93,6 +93,8 @@ class deliverys():
 
         if entregador:
             entregas[id]["entregador"] = entregador
+            
+        print(entregas)
 
         Save.deliverys_list(entregas)
 

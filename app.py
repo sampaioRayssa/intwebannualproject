@@ -172,5 +172,45 @@ def editprofile(cpf):
     return render_template("editProfile.html",session=session,cpf=cpf,conta=conta,ent=ent,adm=adm)
     
 
+@app.route("/editdelivery/<eID>", methods=['GET', 'POST'])
+def editdelivery(eID):
+    eID = int(eID)
+    entregas = Load.deliverys_list()
+    entrega = entregas[eID]
+    
+    if "adm" in session:
+        user = "adm"
+        
+    elif entrega["cliente"] == session["cpf"]:
+        user = "cliente"
+            
+    elif entrega["entregador"] == session["cpf"]:
+        user = "entregador"
+    
+    else:
+        abort(401)
+        
+    if request.method == "POST":
+        status = request.form["status"]
+        cliente = request.form["cliente"]
+        destinatario = request.form["destinatario"]
+        descricao = request.form["descricao"]
+        valor = request.form["valor"]
+        entregador = request.form["entregador"]
+        
+        deliverys.update(eID,entregador,status,cliente,destinatario,descricao,valor)
+
+        
+        return redirect(url_for("index"))
+    
+    
+    return render_template("editDelivery.html",session=session, user=user, entrega=entrega, eID=eID)
+    
+    
+            
+            
+    
+
+
 if __name__ == '__main__':
     app.run(debug=True)

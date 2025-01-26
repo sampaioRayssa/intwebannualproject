@@ -73,8 +73,35 @@ def client():
     
     deliveriyng = deliverys.get.by_client.deliverying(client_cpf)
     delivered = deliverys.get.by_client.delivered(client_cpf)
+    
             
-    return render_template("clientInterface.html",deliveriyng=deliveriyng,delivered=delivered,session=session)
+    return render_template(
+        "clientInterface.html",
+        deliveriyng=deliveriyng,
+        delivered=delivered,
+        session=session,
+        get_adress_by_cep=get_adress_by_cep
+    )
+
+
+@app.route('/deliverer', methods=['GET','POST'])
+def deliverer():
+    user_cpf = session["cpf"]
+    
+    deliveriyng = deliverys.get.by_deliverer.deliverying(user_cpf)
+    delivered = deliverys.get.by_deliverer.delivered(user_cpf)
+    confirmed = deliverys.get.by_deliverer.confirmed(user_cpf)
+    
+    return render_template(
+        "deliverInterface.html",
+        deliveriyng=deliveriyng,
+        delivered=delivered,
+        confirmed=confirmed,
+        session=session,
+        get_adress_by_cep = get_adress_by_cep,
+        get_username_by_cpf = users.get.username_by_cpf
+        )
+
 
 @app.route('/createdelivery', methods=['GET', 'POST'])
 def createdelivery():
@@ -91,15 +118,6 @@ def createdelivery():
         
     return render_template("create_delivery.html",session=session)
 
-@app.route('/deliverer', methods=['GET','POST'])
-def deliverer():
-    user_cpf = session["cpf"]
-    
-    deliveriyng = deliverys.get.by_deliverer.deliverying(user_cpf)
-    delivered = deliverys.get.by_deliverer.delivered(user_cpf)
-    confirmed = deliverys.get.by_deliverer.confirmed(user_cpf)
-    
-    return render_template("deliverInterface.html",deliveriyng=deliveriyng,delivered=delivered,confirmed=confirmed,session=session)
 
 @app.route('/deliver', methods=['POST'])
 def deliver():
@@ -216,7 +234,13 @@ def staff():
     usuarios = Load.users_general_list()
     pedidos = Load.deliverys_list()
 
-    return render_template('adminterface.html', session=session, usuarios=usuarios, pedidos=pedidos)
+    return render_template(
+        'adminterface.html', 
+        session=session, 
+        usuarios=usuarios, 
+        pedidos=pedidos,
+        get_username_by_cpf = users.get.username_by_cpf
+        )
 
 
 if __name__ == '__main__':

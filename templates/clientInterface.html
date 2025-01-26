@@ -10,7 +10,11 @@
         <ul>
             <b>{{item.descricao}}</b>
             <p>{{item.status}}</p>
-            <p>{{item.destinatario}}</p>
+            {% for i,j in get_adress_by_cep(item.destinatario).items() %}
+                <li>
+                    {{i}} : {{j}}
+                </li>    
+            {% endfor %}
             <p>{{item.valor}}</p>
             <p>{{item.entregador}}</p>
             <p>{{item.id}}</p>

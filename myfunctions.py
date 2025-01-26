@@ -1,5 +1,6 @@
 import json
 import random
+import requests
 
 def load_json(file_path):
     with open(file_path, 'r') as arquivo:
@@ -254,11 +255,10 @@ class users():
             return Load.users_general_list()
         
         def deliverers():
-            # Carrega os dados
-            entregadores = Load.deliverers_list()  # Lista de CPFs dos entregadores
-            usuarios = Load.users_general_list()  # Dicionário de usuários
 
-            # Filtra apenas os usuários que são entregadores
+            entregadores = Load.deliverers_list()
+            usuarios = Load.users_general_list()
+
             entregadores_dict = {cpf: usuarios[cpf] for cpf in entregadores if cpf in usuarios}
 
             return entregadores_dict
@@ -267,7 +267,6 @@ class users():
             administradores = Load.administrators_list()  
             usuarios = Load.users_general_list()  
 
-            # Filtra apenas os usuários que são administradores
             adminis_dict = {cpf: usuarios[cpf] for cpf in administradores if cpf in usuarios}
 
             return adminis_dict
@@ -275,6 +274,11 @@ class users():
         def by_cpf(cpf):
             GL = Load.users_general_list()
             return GL[cpf]
+        
+        def username_by_cpf(cpf):
+            GL = Load.users_general_list()
+            username = GL[cpf]["nome"]
+            return username
     
     class set_as():       
         def deliverer(cpf):
@@ -321,3 +325,11 @@ class users():
                 return "User isn't anymore an Admin"
             return "User not found in Admins list"
         
+
+
+def get_adress_by_cep(cep):
+    url = f"https://viacep.com.br/ws/{cep}/json/"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    return "falhou"

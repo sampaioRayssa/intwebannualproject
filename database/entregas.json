@@ -2,72 +2,64 @@
     {
         "status": "confirmed",
         "cliente": "000.000.000-00",
-        "destinatario": "Av. Teste 123",
+        "destinatario": "01001-000",
         "descricao": "Blusa",
-        "valor": "10.90",
         "entregador": "000.000.000-02",
         "id": 0
     },
     {
         "status": "confirmed",
         "cliente": "000.000.000-02",
-        "destinatario": "Av. Teste 214",
+        "destinatario": "01310-000",
         "descricao": "Canetas",
-        "valor": "2,70",
         "entregador": "000.000.000-02",
         "id": 1
     },
     {
         "status": "confirmed",
         "cliente": "000.000.000-02",
-        "destinatario": "Av. Teste 533",
+        "destinatario": "20040-001",
         "descricao": "Caderno de Desenho",
-        "valor": "5.7",
         "entregador": "000.000.000-01",
         "id": 2
     },
     {
         "status": "deliverying",
         "cliente": "000.000.000-02",
-        "destinatario": "av sla man",
+        "destinatario": "30190-010",
         "descricao": "um sapato",
-        "valor": "19,99",
         "entregador": "000.000.000-01",
         "id": 3
     },
     {
         "status": "delivered",
         "cliente": "000.000.000-92",
-        "destinatario": "Av. SLA 974",
+        "destinatario": "40020-000",
         "descricao": "um par de luvas",
-        "valor": "19,99",
         "entregador": "000.000.000-01",
         "id": 4
     },
     {
         "status": "deliverying",
         "cliente": "000.000.000-00",
-        "destinatario": "Av. N sei man",
+        "destinatario": "50010-000",
         "descricao": "uma camisa da shein",
-        "valor": "10.9",
         "entregador": "000.000.000-02",
         "id": 5
     },
     {
         "status": "delivered",
         "cliente": "000.000.000-62",
-        "destinatario": "afipw",
-        "descricao": "vwenoin",
-        "valor": "23",
+        "destinatario": "69005-100",
+        "descricao": "boneco do venom eXtreme",
         "entregador": "000.000.000-01",
         "id": 6
     },
     {
         "status": "confirmed",
         "cliente": "000.000.000-01",
-        "destinatario": "Av. n sei man",
+        "destinatario": "70040-010",
         "descricao": "uma cal\u00e7a",
-        "valor": "35",
         "entregador": "000.000.000-02",
         "id": 7
     }

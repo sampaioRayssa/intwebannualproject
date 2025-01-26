@@ -10,10 +10,12 @@
         <ul>
             <b>{{item.descricao}}</b>
             <p>{{item.status}}</p>
-            <ul>
-            </ul>
+            {% for i,j in get_adress_by_cep(item.destinatario).items() %}
+                <li>
+                    {{i}} : {{j}}
+                </li>    
+            {% endfor %}
             <p>{{item.cliente}}</p>
-            <p>{{item.valor}}</p>
             <p>id: {{item.id}}</p>
 
             <form action="{{url_for('deliver')}}" method="POST">
@@ -30,7 +32,11 @@
     {% for item in delivered %}
         <ul>
             <b>{{item.descricao}}</b>
-            <p>{{item.destinatario}}</p>
+            {% for i,j in get_adress_by_cep(item.destinatario).items() %}
+            <li>
+                {{i}} : {{j}}
+            </li>    
+            {% endfor %}
             <p>{{item.cliente}}</p>
             <p>{{item.valor}}</p>
             <p>id: {{item.id}}</p>

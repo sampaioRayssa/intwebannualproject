@@ -47,7 +47,7 @@ class Load():
 
 
 class deliverys():
-    def create(cliente,destinatario,descrição,valor):
+    def create(cliente,destinatario,descrição):
         entregas = Load.deliverys_list()
         
         entregadores = Load.deliverers_list()
@@ -63,7 +63,6 @@ class deliverys():
             "cliente": cliente,
             "destinatario": destinatario,
             "descricao": descrição,
-            "valor":str(valor),
             "entregador": entregador,
             "id": id
         }
@@ -74,7 +73,7 @@ class deliverys():
 
         return id
     
-    def update(id,entregador = '', status = '', cliente='', destinatario='', descricao='', valor=''):
+    def update(id,entregador = '', status = '', cliente='', destinatario='', descricao=''):
         entregas = deliverys.get.all()
 
         if cliente:
@@ -85,9 +84,6 @@ class deliverys():
 
         if descricao:
             entregas[id]["descricao"] = descricao
-
-        if valor:
-            entregas[id]["valor"] = valor
 
         if status:
             entregas[id]["status"] = status

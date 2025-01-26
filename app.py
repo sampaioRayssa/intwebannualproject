@@ -109,9 +109,8 @@ def createdelivery():
         cliente = session['cpf']
         destinatario = request.form["destinatario"]
         descricao = request.form["descricao"]
-        valor = request.form["valor"]
         
-        deliverys.create(cliente,destinatario,descricao,valor)
+        deliverys.create(cliente,destinatario,descricao)
         
         
         return redirect(url_for("client"))
@@ -209,10 +208,9 @@ def editdelivery(eID):
         cliente = request.form["cliente"]
         destinatario = request.form["destinatario"]
         descricao = request.form["descricao"]
-        valor = request.form["valor"]
         entregador = request.form["entregador"]
         
-        deliverys.update(eID,entregador,status,cliente,destinatario,descricao,valor)
+        deliverys.update(eID,entregador,status,cliente,destinatario,descricao)
 
         
         return redirect(url_for("client"))
@@ -239,7 +237,8 @@ def staff():
         session=session, 
         usuarios=usuarios, 
         pedidos=pedidos,
-        get_username_by_cpf = users.get.username_by_cpf
+        get_username_by_cpf = users.get.username_by_cpf,
+        get_adress_by_cep=get_adress_by_cep
         )
 
 

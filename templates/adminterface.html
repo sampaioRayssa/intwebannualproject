@@ -10,8 +10,11 @@
         <li>
             <b>{{ i["descricao"] }}</b>
             <p>Status: {{ i["status"] }}</p>
-            <p>Destinatário: {{ i["destinatario"] }}</p>
-            <p>Valor: {{ i["valor"] }}</p>
+                {% for k,j in get_adress_by_cep(i.destinatario).items() %}
+                <li>
+                    {{k}} : {{j}}
+                </li>    
+                {% endfor %}
             <p>Entregador: {{ i["entregador"] }}</p>
             <p>ID: {{ i["id"] }}</p>
 

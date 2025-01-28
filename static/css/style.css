@@ -1,26 +1,86 @@
-body,head{
-   height:100%;
-   background-color: #ffffff;
-
+/* Estilização geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: hsl(240, 20%, 98%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
 }
 
-.alluia{
-    background-color: rgb(255, 255, 255);
+nav {
+    background: rgb(0, 0, 0);
+    position: fixed;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-
+    justify-content:space-around;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    gap: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     
 }
 
 
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+    display: inline;
+    border-radius: 10px black;
+}
 
-a{
-    border-radius: 5px;
+li, a{
     text-decoration: none;
-    color: black;
+    color: white;
 
 }
+
+
+/* Estilização do formulário */
+form {
+    justify-content: center;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin-left: 35%;
+    width: 400px;
+    align-items: center;
+    display: flex;
+    background-color: rgb(135, 143, 255);
+    flex-direction: column;
+    border-radius: 3px black;
+    gap: 15px;
+   
+}
+
+
+/* Botão de envio */
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Hover no botão */
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
  
 
 

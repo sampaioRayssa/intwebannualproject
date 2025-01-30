@@ -195,7 +195,7 @@ class deliverys():
         
         def refuse(id,old_entregador,cliente):
             entregadores = Load.deliverers_list()
-            entregas = deliverys.get.by_deliverer(old_entregador)
+            entregas = Load.deliverys_list()
             
             entregador = random.choice(entregadores)
             

@@ -239,6 +239,7 @@ def staff():
 @app.route("/refuse_delivery", methods=["POST"])
 def refuse_delivery():
     entregador = request.form.get("entregador")
+    print(entregador)
 
     if "adm" in session:
         pass

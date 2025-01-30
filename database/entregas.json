@@ -62,5 +62,13 @@
         "descricao": "uma cal\u00e7a",
         "entregador": "000.000.000-02",
         "id": 7
+    },
+    {
+        "status": "deliverying",
+        "cliente": "000.000.000-02",
+        "destinatario": "01310-000",
+        "descricao": "roupa",
+        "entregador": "000.000.111-00",
+        "id": 8
     }
 ]

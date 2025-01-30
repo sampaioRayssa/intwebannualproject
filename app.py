@@ -99,7 +99,8 @@ def deliverer():
         confirmed=confirmed,
         session=session,
         get_adress_by_cep = get_adress_by_cep,
-        get_username_by_cpf = users.get.username_by_cpf
+        get_username_by_cpf = users.get.username_by_cpf,
+        refuse = deliverys.process.refuse
         )
 
 
@@ -107,16 +108,14 @@ def deliverer():
 def createdelivery():
     if request.method == "POST":
         cliente = session['cpf']
-        destinatario = request.form["destinatario"]
-        descricao = request.form["descricao"]
-        
-        deliverys.create(cliente,destinatario,descricao)
-        
-        
-        return redirect(url_for("client"))
-        
-    return render_template("create_delivery.html",session=session)
+        destinatario = request.form["descricao"]  
+        descricao = request.form["destinatario"]  
 
+        deliverys.create(cliente, destinatario, descricao)
+
+        return redirect(url_for("client"))
+
+    return render_template("create_delivery.html", session=session)
 
 @app.route('/deliver', methods=['POST'])
 def deliver():
@@ -221,12 +220,7 @@ def editdelivery(eID):
     
 @app.route("/staff")
 def staff():
-    if "cpf" not in session:
-        print("Sessão sem CPF!")
-        abort(403)
-    
     if session["cpf"] not in Load.administrators_list():
-        print(f"O CPF {session['cpf']} não é administrador.")
         abort(403)
     
     usuarios = Load.users_general_list()
@@ -238,9 +232,65 @@ def staff():
         usuarios=usuarios, 
         pedidos=pedidos,
         get_username_by_cpf = users.get.username_by_cpf,
-        get_adress_by_cep=get_adress_by_cep
+        get_adress_by_cep = get_adress_by_cep
         )
 
+
+@app.route("/refuse_delivery", methods=["POST"])
+def refuse_delivery():
+    entregador = request.form.get("entregador")
+
+    if "adm" in session:
+        pass
+    
+    elif entregador == session["cpf"]:
+        pass
+    
+    else:
+        abort(401)
+        
+    id = int(request.form.get("id"))
+    cliente = request.form.get("cliente")
+        
+    deliverys.process.refuse(id,entregador,cliente)
+    
+    return redirect(url_for("deliverer"))
+
+@app.route("/cancel_delivery", methods=["POST"])
+def cancel_delivery():
+    cliente = request.form.get("cliente")
+
+    
+    print(cliente)
+    print(session["cpf"])
+    if "adm" in session:
+        pass
+    
+    elif cliente == session["cpf"]:
+        pass
+    
+    else:
+        abort(401)
+        
+    id = int(request.form.get("id"))
+        
+    deliverys.process.cancel(id)
+    
+    return redirect(url_for("client"))
+
+@app.route("/delete_delivery", methods=["POST"])
+def delete_delivery():
+    
+    if "adm" in session:
+        pass
+    else:
+        abort(401)
+                
+    id = int(request.form.get("id"))
+        
+    deliverys.delete(id)
+    
+    return redirect(url_for("index"))
 
 if __name__ == '__main__':
     app.run(debug=True)

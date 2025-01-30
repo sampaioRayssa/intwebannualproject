@@ -23,6 +23,12 @@
                     Editar pedido
                 </button>
             </a>
+
+            <form action="{{url_for('cancel_delivery')}}" method="POST">
+                <input type="hidden" name="id" value="{{item.id}}">
+                <input type="hidden" name="cliente" value="{{item.cliente}}">
+                <button>Cancelar pedido</button>
+            </form>
         </ul>
     {% endfor %}
 </li>

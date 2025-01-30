@@ -91,7 +91,6 @@ class deliverys():
         if entregador:
             entregas[id]["entregador"] = entregador
             
-        print(entregas)
 
         Save.deliverys_list(entregas)
 
@@ -193,6 +192,29 @@ class deliverys():
             Save.deliverys_list(entregas)
 
             return entregas[id]
+        
+        def refuse(id,old_entregador,cliente):
+            entregadores = Load.deliverers_list()
+            entregas = deliverys.get.by_deliverer(old_entregador)
+            
+            entregador = random.choice(entregadores)
+            
+            while cliente == entregador or old_entregador == entregador:
+                entregador = random.choice(entregadores)
+                
+            entregas[id]["entregador"] = entregador
+            
+            Save.deliverys_list(entregas)
+            
+            return entregador
+            
+        
+        def cancel(id):
+            entregas = deliverys.get.all()
+
+            entregas[id]['status'] = 'canceled'
+
+            Save.deliverys_list(entregas)
 
 class users():
     def create(cpf,email,nome,telefone,senha):

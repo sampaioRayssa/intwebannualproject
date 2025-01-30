@@ -1,4 +1,8 @@
 /* Estilização geral */
+*{
+    color: black;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: hsl(240, 20%, 98%);

@@ -26,7 +26,14 @@
 
     <button type="submit">Salvar</button>
     <button type="reset">Limpar</button>
+
 </form>
+{% if user == "adm" %}
+    <form action="{{url_for('delete_delivery')}}" method="POST">
+        <input type="hidden" name="id" value="{{entrega.id}}">
+        <button>Deletar do Sistema</button>
+    </form>
+{% endif %}
 
 
 

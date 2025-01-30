@@ -18,8 +18,8 @@
             <p>Entregador: {{ i["entregador"] }}</p>
             <p>ID: {{ i["id"] }}</p>
 
-            <a href="/editdelivery/{{ i['id'] }}">
-                <button>Editar pedido</button>
+            <a href="/editdelivery/{{i.id}}">
+                <button>Editar entrega</button>
             </a>
         </li>
     {% endfor %}

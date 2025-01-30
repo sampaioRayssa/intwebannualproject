@@ -5,4 +5,3 @@
 - Fazer todas as páginas acessíveis pela NAV, de acordo com o usuario logado
 - Página inicial completa
 - Estilização das listas de entregas e de usuarios
-- Remover aquele icone de pesquisa

@@ -4,7 +4,7 @@
 
 {% block container %}
 
-<form action="{{url_for('signup')}}" method="POST">
+<form class="form-nav" action="{{url_for('signup')}}" method="POST">
 
     <!--CPF-->
     <div class="form-group">
@@ -40,10 +40,6 @@
       <label for="#">Você é um entregador?</label>
       <input type="checkbox" name="entregador">
 
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" name="entregador" id="">
-        <label class="" for="#">Sou entregador</label>
-      </div>
         <button type="submit">Criar</button>
     </div>
 

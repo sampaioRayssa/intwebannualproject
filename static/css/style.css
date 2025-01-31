@@ -10,6 +10,7 @@ body {
     padding: 0;
     display: flex;
     height: 100vh;
+
 }
 
 nav {
@@ -20,6 +21,7 @@ nav {
     width: 100%;
     padding: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
     
 }
 
@@ -43,9 +45,13 @@ li, a{
     border-radius: 3px;
     display: flex;
     text-decoration: none;
+<<<<<<< HEAD
     color: rgb(0, 0, 0);
     justify-content: center;
 
+=======
+    color: white;
+>>>>>>> 30b3f0b3b2f8e1c6ef9063b3dcfe2e282a35c9b7
 }
 
 
@@ -62,7 +68,7 @@ form {
     flex-direction: column;
     border-radius: 3px black;
     gap: 15px;
-   
+    border-radius: 5%;
 }
 
 
@@ -76,11 +82,15 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
+    border-radius: 5%;
+
 }
 
 /* Hover no botão */
 button:hover {
     background-color: #0056b3;
+    border-radius: 5%;
+
 }
 
 

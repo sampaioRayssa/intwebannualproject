@@ -82,41 +82,9 @@
     {
         "status": "deliverying",
         "cliente": "000.000.000-00",
-        "destinatario": "preservativos",
-        "descricao": "18000-000",
-        "entregador": "000.000.000-01",
+        "destinatario": "18000-000",
+        "descricao": "body splash",
+        "entregador": "000.000.000-02",
         "id": 10
-    },
-    {
-        "status": "deliverying",
-        "cliente": "000.000.000-00",
-        "destinatario": "preservativos",
-        "descricao": "18000-000",
-        "entregador": "000.000.000-02",
-        "id": 11
-    },
-    {
-        "status": "deliverying",
-        "cliente": "000.000.000-00",
-        "destinatario": "preservativos",
-        "descricao": "14820-774",
-        "entregador": "000.000.000-01",
-        "id": 12
-    },
-    {
-        "status": "deliverying",
-        "cliente": "000.000.000-00",
-        "destinatario": "",
-        "descricao": "maq",
-        "entregador": "000.000.000-02",
-        "id": 13
-    },
-    {
-        "status": "deliverying",
-        "cliente": "000.000.000-00",
-        "destinatario": "184890-000",
-        "descricao": "maquiagem.",
-        "entregador": "000.000.000-01",
-        "id": 14
     }
 ]

@@ -5,7 +5,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: hsl(240, 20%, 98%);
+    background-color: hsl(0, 0%, 100%);
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,32 +13,38 @@ body {
 }
 
 nav {
-    background: rgb(0, 0, 0);
+    background-color: #F5F5BD;
     position: fixed;
     display: flex;
-    justify-content:space-around;
     top: 0;
     width: 100%;
     padding: 15px;
-    gap: 40px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     
 }
 
 
-ul{
+nav ul{
+
+    justify-content: space-between;
+    gap: 3px;
+    display: inline-block;
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    gap: 15px;
-    display: inline;
-    border-radius: 10px black;
+    margin-right: 20px;
+
 }
 
 li, a{
+    background-color: #F5F5BD;
+    padding: 7px 7px;
+    font-size: 18px;
+    border: none;
+    border-radius: 3px;
+    display: flex;
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
+    justify-content: center;
 
 }
 

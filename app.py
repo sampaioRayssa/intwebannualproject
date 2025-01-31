@@ -108,8 +108,8 @@ def deliverer():
 def createdelivery():
     if request.method == "POST":
         cliente = session['cpf']
-        destinatario = request.form["descricao"]  
-        descricao = request.form["destinatario"]  
+        destinatario = request.form["destinatario"]  
+        descricao = request.form["descricao"]  
 
         deliverys.create(cliente, destinatario, descricao)
 

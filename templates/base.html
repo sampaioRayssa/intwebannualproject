@@ -8,42 +8,37 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 <body>
-        <nav>
-            <div>
-                <div>
-                    <ul>
-                        <li>
-                            <a class="#" aria-current="page" href="{{url_for("index")}}">Home</a>
-                        </li>
-                        {% if session.cpf %}
-                        <li>
-                            <a class="#" aria-current="page" href="{{url_for('client')}}">Usuario</a>
-                        </li>
-                        <li>
-                            <a class="#" href="{{url_for('createdelivery')}}">Criar Entrega</a>
-                        </li>
-                        {% endif %} 
-                        {% if session.entregador %}
-                        <li>
-                            <a class="#" href="{{url_for('logout')}}">Logout</a>
-                        </li>
-                            
-                        {% else %}
+    <nav>
+        <ul>
+            <li>
+                <a class="#" aria-current="page" href="{{url_for("index")}}">Home</a>
+            </li>
+            {% if session.cpf %}
+            <li>
+                <a class="#" aria-current="page" href="{{url_for('client')}}">Usuario</a>
+            </li>
+            <li>
+                <a class="#" href="{{url_for('createdelivery')}}">Criar Entrega</a>
+            </li>
+            {% endif %} 
+            {% if session.entregador %}
+            <li>
+                <a class="#" href="{{url_for('logout')}}">Logout</a>
+            </li>
                     
-                        <li class="#">
-                            <a class="#" href="{{url_for('login')}}">Login</a>
-                        </li>
-                        
-                        <li class="#">
-                            <a class="#" href="{{url_for('signup')}}">Criar uma conta</a>
-                        </li>
-                        {% endif %}
-                    
-                    </ul>
+            {% else %}
             
-                </div>
-            </div>
-        </nav>
+            <li class="#">
+                <a class="#" href="{{url_for('login')}}">Login</a>
+            </li>
+                
+            <li class="#">
+                <a class="#" href="{{url_for('signup')}}">Criar uma conta</a>
+            </li>
+            {% endif %}
+            
+        </ul>
+    </nav>
 
     {% block container%}
 

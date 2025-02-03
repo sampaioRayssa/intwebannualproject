@@ -1,14 +1,19 @@
-Aqui está a documentação simplificada do código que você forneceu:
-
----
-
 # **Documentação Simplificada - Sistema de Entregas**
 
-Este sistema gerencia informações de usuários, administradores, entregadores e entregas. Ele permite a criação, edição, remoção e consulta de dados de usuários e entregas, além de realizar a atribuição de status às entregas.
+Esta documentação foi gerada com o auxílio de uma IA de linguagem natural, com o único intuito de fornecer uma visão geral e simplificada das funcionalidades e estruturas do sistema de entregas, para facilitar o entendimento e a integração entre os desenvolvedores back-end e front-end.
+
+
+## **Geração da Documentação**
+
+A documentação foi gerada com o auxílio de uma ferramenta de Inteligência Artificial (IA), especificamente o modelo GPT-3 da OpenAI (ChatGPT), que analisou o código fornecido e extraiu os principais componentes e suas funcionalidades. O principal objetivo é fornecer uma explicação concisa e acessível sobre a estrutura e as funções do código, visando principalmente os desenvolvedores front-end.
+
+Este documento não substitui uma documentação técnica detalhada, mas oferece uma visão geral útil para facilitar o entendimento do fluxo e da utilização das funções principais do sistema.
 
 ---
 
 ## **Funções Básicas de Save/Load (Armazenamento de Dados)**
+
+Essas funções são responsáveis por carregar e salvar dados em arquivos JSON, garantindo persistência das informações.
 
 1. **`load_json(file_path)`**: 
    - Carrega dados de um arquivo JSON.
@@ -24,7 +29,7 @@ Este sistema gerencia informações de usuários, administradores, entregadores 
 ## **Classes e Funções Principais**
 
 ### **1. Save**
-- **Objetivo**: Salva dados em diferentes arquivos JSON.
+- **Objetivo**: Salvar dados em diferentes arquivos JSON para persistência.
 
 #### Métodos:
 - **`users_general_list(update)`**: Salva a lista geral de usuários.
@@ -36,7 +41,7 @@ Este sistema gerencia informações de usuários, administradores, entregadores 
 ---
 
 ### **2. Load**
-- **Objetivo**: Carrega dados de diferentes arquivos JSON.
+- **Objetivo**: Carregar dados de diferentes arquivos JSON para acesso e manipulação.
 
 #### Métodos:
 - **`users_general_list()`**: Carrega a lista geral de usuários.
@@ -48,13 +53,13 @@ Este sistema gerencia informações de usuários, administradores, entregadores 
 ---
 
 ### **3. Deliverys (Entregas)**
-- **Objetivo**: Gerenciar entregas.
+- **Objetivo**: Gerenciar as entregas, incluindo criação, atualização, remoção e alteração de status.
 
 #### Métodos:
 - **`create(cliente, destinatario, descrição, valor)`**: Cria uma nova entrega, atribuindo um entregador aleatório.
-- **`update(id, entregador, status, cliente, destinatario, descrição, valor)`**: Atualiza os dados de uma entrega.
+- **`update(id, entregador, status, cliente, destinatario, descrição, valor)`**: Atualiza os dados de uma entrega existente.
 - **`delete(id)`**: Remove uma entrega.
-  
+
 #### Métodos de Consulta:
 - **`get.by_client.all(user_cpf)`**: Retorna todas as entregas de um cliente.
 - **`get.by_client.deliverying(user_cpf)`**: Retorna as entregas "em andamento" de um cliente.
@@ -64,7 +69,7 @@ Este sistema gerencia informações de usuários, administradores, entregadores 
 - **`get.by_deliverer.deliverying(user_cpf)`**: Retorna as entregas "em andamento" de um entregador.
 - **`get.by_deliverer.delivered(user_cpf)`**: Retorna as entregas "entregues" de um entregador.
 - **`get.by_deliverer.confirmed(user_cpf)`**: Retorna as entregas "confirmadas" de um entregador.
-- **`get.all()`**: Retorna todas as entregas.
+- **`get.all()`**: Retorna todas as entregas no sistema.
 
 #### Métodos de Processamento:
 - **`process.deliver(id)`**: Marca a entrega como "entregue".
@@ -73,22 +78,22 @@ Este sistema gerencia informações de usuários, administradores, entregadores 
 ---
 
 ### **4. Users (Usuários)**
-- **Objetivo**: Gerenciar usuários (clientes, entregadores e administradores).
+- **Objetivo**: Gerenciar usuários (clientes, entregadores e administradores), incluindo a criação, edição, remoção e consulta de dados.
 
 #### Métodos:
-- **`create(cpf, email, nome, telefone, senha)`**: Cria um novo usuário.
-- **`edit(cpf, email, nome, telefone, senha)`**: Edita os dados de um usuário.
+- **`create(cpf, email, nome, telefone, senha)`**: Cria um novo usuário com informações fornecidas.
+- **`edit(cpf, email, nome, telefone, senha)`**: Edita os dados de um usuário existente.
 - **`delete(cpf)`**: Exclui um usuário.
 
 #### Métodos de Consulta:
-- **`get.all()`**: Retorna todos os usuários.
-- **`get.deliverers()`**: Retorna todos os entregadores.
-- **`get.administrators()`**: Retorna todos os administradores.
+- **`get.all()`**: Retorna todos os usuários cadastrados.
+- **`get.deliverers()`**: Retorna todos os entregadores cadastrados.
+- **`get.administrators()`**: Retorna todos os administradores cadastrados.
 - **`get.by_cpf(cpf)`**: Retorna um usuário específico pelo CPF.
 
 #### Métodos de Atribuição de Função:
-- **`set_as.deliverer(cpf)`**: Adiciona um usuário como entregador.
-- **`set_as.administrator(cpf)`**: Adiciona um usuário como administrador.
+- **`set_as.deliverer(cpf)`**: Adiciona um usuário à lista de entregadores.
+- **`set_as.administrator(cpf)`**: Adiciona um usuário à lista de administradores.
 
 #### Métodos de Remoção de Função:
 - **`unset_as.deliverer(cpf)`**: Remove um usuário da lista de entregadores.
@@ -99,10 +104,10 @@ Este sistema gerencia informações de usuários, administradores, entregadores 
 ## **Fluxo de Funcionamento**
 
 1. **Cadastro de Usuário**: 
-   - O usuário se cadastra com informações como CPF, email, nome, telefone e senha.
+   - O usuário se cadastra fornecendo informações como CPF, email, nome, telefone e senha.
    
 2. **Gestão de Entregas**: 
-   - O administrador ou entregador pode gerenciar as entregas, criando, atualizando, excluindo e alterando o status das entregas.
+   - Administradores ou entregadores podem gerenciar as entregas, criando, atualizando, excluindo e alterando o status das entregas.
 
 3. **Consultas de Entregas**: 
    - Usuários e entregadores podem consultar suas entregas em diferentes estados (em andamento, entregues, confirmadas).
@@ -138,8 +143,8 @@ Este sistema gerencia informações de usuários, administradores, entregadores 
 
 ### **Considerações Finais**
 
-Este sistema é simples e direto, com a principal finalidade de gerenciar usuários e entregas de forma eficaz. A arquitetura foi organizada para permitir fácil acesso e manipulação dos dados de usuários e entregas, com persistência em arquivos JSON.
+Esta documentação foi criada para fornecer uma visão geral clara e direta das principais funcionalidades do sistema de entregas. O objetivo principal é facilitar a comunicação entre os desenvolvedores front-end e back-end, permitindo uma melhor compreensão das funcionalidades e integração do sistema. Caso precise de mais detalhes sobre algum aspecto do código, entre em contato e estaremos à disposição para fornecer mais explicações.
 
 ---
 
-Essa documentação fornece uma visão geral do funcionamento do sistema. Se precisar de mais detalhes ou explicações sobre algum trecho específico, estou à disposição para ajudar!
+Esta versão da documentação deve ser mais transparente quanto à sua origem e objetivo. Se precisar de mais ajustes, fique à vontade para pedir!

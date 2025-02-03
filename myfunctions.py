@@ -350,4 +350,4 @@ def get_adress_by_cep(cep):
     response = requests.get(url)
     if response.status_code == 200:
         return response.json()
-    return "falhou"
+    return {"error":"CEP invalido"}

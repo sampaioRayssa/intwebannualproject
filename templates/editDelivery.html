@@ -3,41 +3,54 @@
 {% block title %}Index?{% endblock title %}
 
 {% block container %}
-<h1>Editar Entrega</h1>
-<form action="/editdelivery/{{eID}}" method="POST">
-    <input type="text" name="cliente" value="{{entrega.cliente}}" hidden>
 
-    <input type="text" name="aaaaa" value="{{entrega.cliente}}" disabled>
-    <input type="hidden" name="aaaaa" value="{{entrega.cliente}}">
+<div class="corpinho">
+    <div class="container">
+        <svg width="100" height="100" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3h12v10h-12v-10zm14 4h4l3 4v6h-3v-4h-4v-6zm-9 11c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2zm10 0c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2z"/>
+        </svg>
+        <h1>Editar Entrega</h1>
+        <form class="form1" action="/editdelivery/{{eID}}" method="POST">
+            <label class="lamb">Cliente:</label>
+            <input type="text" name="cliente" value="{{entrega.cliente}}" hidden>
 
-    <select name="status" {% if user != "adm" %}disabled{% endif %}>
-        <option value="deliverying" {% if entrega.status == 'deliverying' %}selected{% endif %}>deliverying</option>
-        <option value="delivered" {% if entrega.status == 'delivered' %}selected{% endif %}>delivered</option>
-        <option value="confirmed" {% if entrega.status == 'confirmed' %}selected{% endif %}>confirmed</option>
-    </select>    
-    <input type="hidden" name="status" value="{{entrega.status}}">
+            <input type="text" name="aaaaa" value="{{entrega.cliente}}" disabled>
+            <input type="hidden" name="aaaaa" value="{{entrega.cliente}}">
+            <label class="lamb">Status:</label>
+            <select class="aaaa" name="status" {% if user != "adm" %}disabled{% endif %}>
+                <option value="deliverying" {% if entrega.status == 'deliverying' %}selected{% endif %}>deliverying</option>
+                <option value="delivered" {% if entrega.status == 'delivered' %}selected{% endif %}>delivered</option>
+                <option value="confirmed" {% if entrega.status == 'confirmed' %}selected{% endif %}>confirmed</option>
+            </select>    
+            <input type="hidden" name="status" value="{{entrega.status}}">
+            
+            <label class="lamb">Destinatário:</label>
+            <input type="text" name="destinatario" value="{{entrega.destinatario}}">
 
-    <input type="text" name="destinatario" value="{{entrega.destinatario}}">
+            <label class="lamb">Descrição:</label>
+            <input type="text" name="descricao" value="{{entrega.descricao}}">
 
-    <input type="text" name="descricao" value="{{entrega.descricao}}">
+            <label class="lamb">Tu é entregador?</label>
+            <input type="text" name="entregador" value="{{entrega.entregador}}" {% if user != "adm" %}disabled{% endif %}>
+            <input type="hidden" name="entregador" value="{{entrega.entregador}}">
+            <div class="botao_bo">
+                <div class="meubotao2">
+                    <button class="titi" type="submit" >Salvar</button>
+                    <button class="fifi" type="reset" >Limpar</button>
+                </div>
+            </div>
+        </form>
+        {% if user == "adm" %}
+            <form class="form2" action="{{url_for('delete_delivery')}}" method="POST">
+                <input type="hidden" name="id" value="{{entrega.id}}">
+                <button class="flask">&#9746; Deletar do Sistema</button>
+            </form>
+        {% endif %}
+    </div>
+</div>
 
-    <input type="text" name="entregador" value="{{entrega.entregador}}" {% if user != "adm" %}disabled{% endif %}>
-    <input type="hidden" name="entregador" value="{{entrega.entregador}}">
-
-    <button type="submit">Salvar</button>
-    <button type="reset">Limpar</button>
-
-</form>
-{% if user == "adm" %}
-    <form action="{{url_for('delete_delivery')}}" method="POST">
-        <input type="hidden" name="id" value="{{entrega.id}}">
-        <button>Deletar do Sistema</button>
-    </form>
-{% endif %}
 
 
 
 
-
-
-{% endblock container %}
+<!--{% endblock container %}-->

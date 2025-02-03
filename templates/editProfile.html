@@ -4,20 +4,36 @@
 
 {% block container %}
 
-<form action="/editprofile/{{cpf}}" method="POST" >
-
-    <input type="email" name="email" value="{{conta.email}}">
-    <input type="text" name="nome" value="{{conta.nome}}">
-    <input type="tel" name="telefone" value="{{conta.tel}}">
-    <input type="password" name="password" value="{{conta.password}}">
-    <input type="checkbox" name="entregador" {% if ent %}checked{% endif %}>
-    
-    {% if session.adm %}
-        <input type="checkbox" name="admin" {% if adm %}checked{% endif %}>
-    {% endif %}
-
-    <button type="submit">Salvar alterações</button>
-    <button type="reset">Limpar</button>
-</form>
-
+    <div class="corpinho2">
+        <div class="algumacoisa">
+            <h1 class="titulo40">Seu Perfil</h1>
+            <img src="user.png" alt="Icone AVG" width="250" height="250">
+        </div>
+        <form class="form_profile" action="/editprofile/{{cpf}}" method="POST" >
+            <h1 class="titulo40">Editar User</h1>
+            <label>E-mail:</label>
+            <input class="lamb" type="email" name="email" value="{{conta.email}}">
+            <label>Nome:</label>
+            <input class="lamb" type="text" name="nome" value="{{conta.nome}}">
+            <label>Telefone:</label>
+            <input class="lamb" type="tel" name="telefone" value="{{conta.tel}}">
+            <label>Senha:</label>
+            <input class="lamb" type="password" name="password" value="{{conta.password}}">
+            <div class="checkboxx">
+                <label>Sou entregador</label>
+                <input type="checkbox" name="entregador" {% if ent %}checked{% endif %}>
+                    
+                {% if session.adm %}
+                <label>Sou Administrador</label>
+                <input type="checkbox" name="admin" {% if adm %}checked{% endif %}>
+                {% endif %}
+            </div>
+            <div class="botao_bo">
+                <div class="meubotao2">
+                <button class="titi" type="submit">Salvar alterações</button>
+                <button class="fifi" type="reset">Limpar</button>
+            </div>
+        </div>
+        </form>
+    </div>
 {% endblock container %}

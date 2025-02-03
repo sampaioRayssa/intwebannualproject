@@ -1,22 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Index{% endblock title %}
+{% block title %}Index?{% endblock title %}
 
 {% block container %}
+<link rel="stylesheet" href="style.css">
 
-    <h1>Bem-vindo à nossa aplicação</h1>
-    <p>Este é um sistema de gerenciamento de entregas, onde usuários podem criar, acompanhar e gerenciar entregas, enquanto entregadores e administradores têm funções específicas para gerenciar essas entregas.</p>
-    
-    <h2>Funcionalidades</h2>
-    <ul>
-        <li><strong>Usuário:</strong> Os usuários podem criar entregas e acompanhar o status das suas entregas.</li>
-        <li><strong>Entregador:</strong> Os entregadores podem pegar entregas para entregar, atualizar o status da entrega e confirmar ou recusar uma entrega.</li>
-        <li><strong>Administrador:</strong> Os administradores têm acesso a todas as entregas e podem gerenciar usuários e entregas em nível mais amplo.</li>
-    </ul>
-
-    <h2>Acessar a Aplicação</h2>
-    <p>Se você já possui uma conta, por favor, <a href="{{url_for('login')}}">faça o login</a>.</p>
-    <p>Se você ainda não possui uma conta, <a href="{{url_for('signup')}}">crie uma conta</a>.</p>
 
 {% endblock container %}
-

@@ -2,64 +2,67 @@
 
 {% block title %}register{% endblock title %}
 
-{% block container %}
+{% block container %} 
+<link rel="stylesheet" href="style.css">
+  <div class="supC">
+    <h1>início?</h1>
+    <h1>Olá esquerda</h1> 
+    <div class="corpo_cadastro">  
+      
+      <h1>Cadastre-se no nosso site</h1>
 
-<form class="form-nav" action="{{url_for('signup')}}" method="POST">
+      <form class="form_cadastro" action="{{url_for('signup')}}" method="POST">
 
-    <!--CPF-->
-    <div class="form-group">
-      <label for="#">CPF</label>
-      <input type="text" class="form-control" id="" name="cpf" placeholder="000.000.000-00">
-    </div>
+        <!--CPF-->
+        <div class="form-group">
+          <label for="#">CPF</label>
+          <input type="text" class="form-control" id="" name="cpf" placeholder="000.000.000-00">
+        </div>
 
-    <!--E-mail-->
-    <div class="form-group">
-      <label for="#">E-mail</label>
-      <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelp" placeholder="Seu email:">
-      <small id="emailHelp" class="form-text text-muted"></small>
-    </div>
-    
-    <!--Nome-->
-    <div class="form-group">
-      <label for="#">Nome</label>
-      <input type="text" class="form-control" id="" name="name" placeholder="Seu Nome:">
-    </div>
-
-    <!--telefone-->
-    <div class="form-group">
-      <label for="#">Telefone</label>
-      <input type="tel" class="form-control" id="tel" name="telefone" placeholder="00 00000-0000">
-    </div>
-
-    <div class="form-group">
-      <label for="#">Senha</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Sua Senha: ">
-    </div>
-    <!--Seleção entregador-->
-    <div class="form-group">
-      <label for="#">Você é um entregador?</label>
-<<<<<<< HEAD
-      <input type="checkbox" name="Entregador">
+        <!--E-mail-->
+        <div class="form-group">
+          <label for="#">E-mail</label>
+          <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelp" placeholder="Seu email:">
+          <small id="emailHelp" class="form-text text-muted"></small>
+        </div>
         
-=======
-      <input type="checkbox" name="entregador">
+        <!--Nome-->
+        <div class="form-group">
+          <label for="#">Nome</label>
+          <input type="text" class="form-control" id="" name="name" placeholder="Seu Nome:">
+        </div>
 
+        <!--telefone-->
+        <div class="form-group">
+          <label for="#">Telefone</label>
+          <input type="tel" class="form-control" id="tel" name="telefone" placeholder="00 00000-0000">
+        </div>
+
+        <div class="form-group">
+          <label for="#">Senha</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Sua Senha: ">
+        </div>
+        <!--Seleção entregador-->
+        <div class="form-group">
+          <label for="#">Você é um entregador?</label>
+
+          <input type="checkbox" name="Entregador">
+
+        </div>
         <button type="submit">Criar</button>
->>>>>>> 298d18bef39ca686924a02defcf9565a38f8eabb
+        
+      </form>
+
+        <!--<form action="{{url_for('signup')}}" method="POST" >
+            <input type="text" name="cpf">
+            <input type="email" name="email">
+            <input type="text" name="nome">
+            <input type="tel" name="telefone">
+            <input type="password" name="password" id="password">
+            <input type="checkbox" name="entregador">
+
+            <button type="submit">create account</button>
+        </form>-->
     </div>
-    <button type="submit">Criar</button>
-    
-  </form>
-
-    <!--<form action="{{url_for('signup')}}" method="POST" >
-        <input type="text" name="cpf">
-        <input type="email" name="email">
-        <input type="text" name="nome">
-        <input type="tel" name="telefone">
-        <input type="password" name="password" id="password">
-        <input type="checkbox" name="entregador">
-
-        <button type="submit">create account</button>
-    </form>-->
-
+  </div>
 {% endblock container %}

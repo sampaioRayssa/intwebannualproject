@@ -40,7 +40,7 @@
         "id": 4
     },
     {
-        "status": "deliverying",
+        "status": "canceled",
         "cliente": "000.000.000-00",
         "destinatario": "50010-000",
         "descricao": "uma camisa da shein",
@@ -72,7 +72,7 @@
         "id": 8
     },
     {
-        "status": "deliverying",
+        "status": "canceled",
         "cliente": "000.000.000-00",
         "destinatario": "14813-000",
         "descricao": "maquiagem",
@@ -80,11 +80,75 @@
         "id": 9
     },
     {
-        "status": "deliverying",
+        "status": "canceled",
         "cliente": "000.000.000-00",
         "destinatario": "18000-000",
         "descricao": "body splash",
         "entregador": "000.000.000-02",
         "id": 10
+    },
+    {
+        "status": "canceled",
+        "cliente": "000.000.000-00",
+        "destinatario": "14820-820",
+        "descricao": "maquiagemm",
+        "entregador": "000.000.000-01",
+        "id": 11
+    },
+    {
+        "status": "canceled",
+        "cliente": "000.000.000-00",
+        "destinatario": "14820-820",
+        "descricao": "abc",
+        "entregador": "000.000.000-02",
+        "id": 12
+    },
+    {
+        "status": "canceled",
+        "cliente": "000.000.000-00",
+        "destinatario": "14820-820",
+        "descricao": "Absorvente",
+        "entregador": "000.000.111-00",
+        "id": 13
+    },
+    {
+        "status": "deliverying",
+        "cliente": "000.000.000-00",
+        "destinatario": "01153000",
+        "descricao": "aqu\u00e1rio",
+        "entregador": "000.000.000-02",
+        "id": 15
+    },
+    {
+        "status": "canceled",
+        "cliente": "000.000.000-00",
+        "destinatario": "01153000",
+        "descricao": "aqu\u00e1rio",
+        "entregador": "000.000.000-01",
+        "id": 16
+    },
+    {
+        "status": "deliverying",
+        "cliente": "000.000.000-00",
+        "destinatario": "14820-820",
+        "descricao": "aaa",
+        "entregador": "000.000.000-02",
+        "id": 17
+    },
+    {
+        "status": "deliverying",
+        "cliente": "000.000.000-00",
+        "destinatario": "14820-820",
+        "descricao": "c\u00e7,,4oeced",
+        "entregador": "000.000.111-00",
+        "id": 18
+    },
+    {
+        "status": "deliverying",
+        "cliente": "000.000.000-00",
+        "destinatario": "14820-820",
+        "descricao": "feia",
+        "entregador": "000.000.111-00",
+        "id": 19
     }
 ]

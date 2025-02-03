@@ -3,7 +3,6 @@
 {% block title %}Index?{% endblock title %}
 
 {% block container %}
-<link rel="stylesheet" href="style.css">
     <div class="supCD">
         <div class="vou1">
             <h1 class="mecome">fox expless</h1>
@@ -17,7 +16,7 @@
             <p class="simbolo2">&#9992;</p>
             <form class="form_create1" action="{{url_for('createdelivery')}}" method="POST" >
                 <label class="">Produto:</label>
-                <input class="inputcreate" type="text" name="descricao" placeholder="Ex:preservativo">
+                <input class="inputcreate" type="text" name="descricao" placeholder="Ex:">
                 <label class="">Destinatário:</label>
                 <input class="inputcreate" type="text" name="destinatario" placeholder="CEP">
                 <button class="meubotao" type="submit">Solicitar</button>

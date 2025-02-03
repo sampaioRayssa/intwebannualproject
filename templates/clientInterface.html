@@ -4,52 +4,49 @@
 
 {% block container %}
 
-<h1>A caminho</h1>
-<li>
+<div class="cart-container">
     {% for item in deliveriyng %}
-        <ul>
-            <b>{{item.descricao}}</b>
-            <p>{{item.status}}</p>
-            {% for i,j in get_adress_by_cep(item.destinatario).items() %}
-                <li>
-                    {{i}} : {{j}}
-                </li>    
-            {% endfor %}
-            <p>{{item.entregador}}</p>
-            <p>{{item.id}}</p>
-
-            <a href="/editdelivery/{{item.id}}">
-                <button>
-                    Editar pedido
-                </button>
-            </a>
-
-            <form action="{{url_for('cancel_delivery')}}" method="POST">
-                <input type="hidden" name="id" value="{{item.id}}">
-                <input type="hidden" name="cliente" value="{{item.cliente}}">
-                <button>Cancelar pedido</button>
-            </form>
-        </ul>
+      <div class="cart-item">
+        <b>{{item.descricao}}</b>
+        <p class="redd">{{item.status}}</p>
+        {% for i,j in get_adress_by_cep(item.destinatario).items() %}
+          <p class="redd">{{i}} : {{j}}</p>    
+        {% endfor %}
+        <p class="reed">{{item.entregador}}</p>
+        <p class="reed">{{item.id}}</p>
+        <div class="buttons-container">
+          <a class="react" href="/editdelivery/{{item.id}}">
+            <button class="edit-btn">Editar pedido</button>
+          </a>
+  
+          <form class="meidei" action="{{url_for('cancel_delivery')}}" method="POST">
+            <input type="hidden" name="id" value="{{item.id}}">
+            <input type="hidden" name="cliente" value="{{item.cliente}}">
+            <button class="cancel-btn">Cancelar pedido</button>
+          </form>
+        </div>
+      </div>
     {% endfor %}
-</li>
-
-<h1>Entregue (requer confirmação)</h1>
-<li>
+  </div>
+  
+  <!-- Div separada para o outro bloco -->
+  <div class="cart-container">
     {% for item in delivered %}
-        <ul>
-            <b>{{item.descricao}}</b>
-            <p>{{item.status}}</p>
-            <p>{{item.destinatario}}</p>
-            <p>{{item.entregador}}</p>
-            <p>{{item.id}}</p>
-
-            <form action="{{url_for('confirm')}}" method="POST">
-                <input type="hidden" name="id" value="{{item.id}}">
-                <button>Confirmar entrega</button>
-            </form>
-        </ul>
+      <div class="delivered-item">
+        <b>{{item.descricao}}</b>
+        <p>{{item.status}}</p>
+        <p>{{item.destinatario}}</p>
+        <p>{{item.entregador}}</p>
+        <p>{{item.id}}</p>
+  
+        <form class="meidei" action="{{url_for('confirm')}}" method="POST">
+          <input type="hidden" name="id" value="{{item.id}}">
+          <button class="confirm-btn">Confirmar entrega</button>
+        </form>
+      </div>
     {% endfor %}
-</li>
+  </div>
+  
 
 
 

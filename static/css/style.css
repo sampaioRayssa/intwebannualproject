@@ -1,6 +1,9 @@
 /* Estilização geral */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     color: black;
+    font-family: 'Roboto';
 }
 
 body {
@@ -45,13 +48,9 @@ li, a{
     border-radius: 3px;
     display: flex;
     text-decoration: none;
-<<<<<<< HEAD
     color: rgb(0, 0, 0);
     justify-content: center;
-
-=======
     color: white;
->>>>>>> 30b3f0b3b2f8e1c6ef9063b3dcfe2e282a35c9b7
 }
 
 
